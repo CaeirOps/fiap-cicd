@@ -24,6 +24,5 @@ script:
 deploy:    
   provider: heroku
   strategy: api
-  api_key: 
-    secure: $HEROKU_API_KEY
+  api_key: $HEROKU_API_KEY
   app: fiap-cicd
