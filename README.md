@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/CaeirOps/fiap-cicd.svg?branch=dev)](https://travis-ci.com/CaeirOps/fiap-cicd)
 # FIAP - CICD
 
 A finalidade deste projeto é realizar um deploy de uma aplicação web no Heroku utilizando Travis CI.
