@@ -1,12 +1,16 @@
 # Linguagem Utilizada para Desenvolver a Aplicação
 language: python
 
+# Definição de SO
+os: linux
+dist: xenial
+
 # Versão que a aplicação suporta.
 python:
   - "3.6.3"
 
 # Faz a instalação com Sudo, para ter privilégio de Super Usuário.
-sudo: required
+sudo: true
 
 # Instalação de Módulos que são necessários para a Aplicação.
 install:
@@ -16,20 +20,10 @@ install:
 script:
   - python test.py
 
-# Realiza o merge para branch master
-after_success:
-  - git config --global user.email $GIT_USER
-  - git config --global user.name 'Travis'
-  - git remote set-branches --add origin master
-  - git fetch
-  - git reset --hard
-  - git checkout master
-  - git merge dev
-  - git push --set-upstream origin master
-
 # Define que o processo de Deploy será na Plataforma Heroku. É necessário informar o nome da APP criada no Heroku
 deploy:    
   provider: heroku
-  api-key: 
+  strategy: api
+  api_key: 
     secure: $HEROKU_API_KEY
   app: fiap-cicd
